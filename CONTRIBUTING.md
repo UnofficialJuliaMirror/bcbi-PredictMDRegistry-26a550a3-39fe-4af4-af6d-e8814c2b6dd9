@@ -7,14 +7,14 @@
     <tbody>
         <tr>
             <td align="left">
-                <a href="#">
+                <a href="#1-how-to-register-a-new-package-with-predictmdregistry">
                     1. How to register a new package with PredictMDRegistry
                 </a>
             </td>
         </tr>
         <tr>
             <td align="left">
-                <a href="#">
+                <a href="#2-how-to-register-a-new-version-for-an-existing-package-already-registered-with-predictmdregistry">
                     2. How to register a new version for an existing package already registered with PredictMDRegistry
                 </a>
             </td>
@@ -245,6 +245,7 @@ Open a new pull request: [https://github.com/bcbi/PredictMDRegistry/compare](htt
 Once your pull request has been merged, delete your local copy of your fork:
 ```bash
 rm -rf PredictMDRegistry
+```
 
 # See Also
 
