@@ -12,9 +12,9 @@
     <tbody>
         <tr>
             <td>Travis CI</td>
-            <td><a href="https://travis-ci.com/bcbi/PredictMDRegistry/branches">
+            <td><a href="https://travis-ci.org/bcbi/PredictMDRegistry/branches">
             <img
-            src="https://travis-ci.com/bcbi/PredictMDRegistry.svg?branch=master"
+            src="https://travis-ci.org/bcbi/PredictMDRegistry.svg?branch=master"
             /></a></td>
         </tr>
     </tbody>
