@@ -23,7 +23,6 @@ then
     export CURL_USER_AGENT="Travis-CI $(curl --version | head -n 1)"
     mkdir -p ~/julia
     curl -A "$CURL_USER_AGENT" -s -L --retry 7 "$JULIA_URL" | tar -C ~/julia -x -z --strip-components=1 -f -
-    export PATH="${PATH}:${TRAVIS_HOME}/julia/bin"
 else
     true
 fi
@@ -43,10 +42,11 @@ then
     mkdir juliamnt
     hdiutil mount -readonly -mountpoint juliamnt julia.dmg
     cp -a juliamnt/*.app/Contents/Resources/julia ~/
-    export PATH="${PATH}:${TRAVIS_HOME}/julia/bin"
 else
     true
 fi
+
+export PATH="${PATH}:${TRAVIS_HOME}/julia/bin"
 
 julia $JULIA_FLAGS -e "VERSION >= v\"0.7.0-DEV.3630\" && using InteractiveUtils; versioninfo()"
 
