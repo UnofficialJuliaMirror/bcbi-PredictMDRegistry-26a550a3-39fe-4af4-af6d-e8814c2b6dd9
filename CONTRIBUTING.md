@@ -249,6 +249,12 @@ rm -rf PredictMDRegistry
 
 # Appendix A: See Also
 
-1. [https://github.com/HolyLab/HolyLabRegistry/blob/master/README.md](https://github.com/HolyLab/HolyLabRegistry/blob/master/README.md)
+## Helpful documentation and discussions
 
-2. [https://discourse.julialang.org/t/creating-a-registry/12094](https://discourse.julialang.org/t/creating-a-registry/12094)
+1. [https://github.com/HolyLab/HolyLabRegistry/blob/master/README.md](https://github.com/HolyLab/HolyLabRegistry/blob/master/README.md)
+2. [Creating a registry](https://discourse.julialang.org/t/creating-a-registry/12094)
+
+## Examples of other registries
+
+1. [https://github.com/HolyLab/HolyLabRegistry](https://github.com/HolyLab/HolyLabRegistry)
+2. [https://github.com/fredrikekre/Registry](https://github.com/fredrikekre/Registry)
