@@ -19,7 +19,9 @@ julia $JULIA_FLAGS -e '
     TRAVIS_BUILD_DIR = strip(ENV["TRAVIS_BUILD_DIR"]);
     @info("TRAVIS_BUILD_DIR: ", TRAVIS_BUILD_DIR,)
     import Pkg;
-    Pkg.Registry.add(Pkg.RegistrySpec(path=TRAVIS_BUILD_DIR));
+    Pkg.Registry.add(Pkg.RegistrySpec(path=TRAVIS_BUILD_DIR,));
+    Pkg.Registry.add(Pkg.RegistrySpec(name="General",));
+    Pkg.Registry.update(Pkg.RegistrySpec(name="General",));
     '
 
 julia $JULIA_FLAGS -e '
