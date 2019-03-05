@@ -21,8 +21,8 @@
         </tr>
         <tr>
             <td align="left">
-                <a href="#">
-                    .
+                <a href="#appendix-a-see-also">
+                    Appendix A: See Also
                 </a>
             </td>
         </tr>
