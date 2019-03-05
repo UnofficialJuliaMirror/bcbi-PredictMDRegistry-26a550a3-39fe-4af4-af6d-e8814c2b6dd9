@@ -22,7 +22,7 @@
         <tr>
             <td align="left">
                 <a href="#">
-                    See Also
+                    
                 </a>
             </td>
         </tr>
@@ -247,7 +247,7 @@ Once your pull request has been merged, delete your local copy of your fork:
 rm -rf PredictMDRegistry
 ```
 
-# See Also
+# Appendix A: See Also
 
 1. [https://github.com/HolyLab/HolyLabRegistry/blob/master/README.md](https://github.com/HolyLab/HolyLabRegistry/blob/master/README.md)
 
