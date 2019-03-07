@@ -14,14 +14,17 @@ export PATH="${PATH}:${TRAVIS_HOME}/julia/bin"
 
 julia $JULIA_FLAGS -e "VERSION >= v\"0.7.0-DEV.3630\" && using InteractiveUtils; versioninfo()"
 
+rm -rf $HOME/.julia
+rm -rf $TRAVIS_HOME/.julia
+
 julia $JULIA_FLAGS -e '
     ENV["JULIA_DEBUG"] = "all";
     TRAVIS_BUILD_DIR = strip(ENV["TRAVIS_BUILD_DIR"]);
     @info("TRAVIS_BUILD_DIR: ", TRAVIS_BUILD_DIR,)
     import Pkg;
     Pkg.Registry.add(Pkg.RegistrySpec(path=TRAVIS_BUILD_DIR,));
-    Pkg.Registry.add(Pkg.RegistrySpec(name="General",));
-    Pkg.Registry.update(Pkg.RegistrySpec(name="General",));
+    Pkg.Registry.add("General"); 
+    Pkg.Registry.update("General"); 
     '
 
 julia $JULIA_FLAGS -e '
