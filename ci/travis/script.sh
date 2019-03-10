@@ -18,42 +18,13 @@ rm -rf $HOME/.julia
 rm -rf $TRAVIS_HOME/.julia
 
 julia $JULIA_FLAGS -e '
-    ENV["JULIA_DEBUG"] = "all";
-    TRAVIS_BUILD_DIR = strip(ENV["TRAVIS_BUILD_DIR"]);
-    @info("TRAVIS_BUILD_DIR: ", TRAVIS_BUILD_DIR,)
-    import Pkg;
-    Pkg.Registry.add(Pkg.RegistrySpec(path=TRAVIS_BUILD_DIR,));
-    Pkg.Registry.add("General"); 
-    Pkg.Registry.update("General"); 
-    '
-
-julia $JULIA_FLAGS -e '
-    ENV["JULIA_DEBUG"] = "all";
-    import Pkg;
-    Pkg.add("PredictMD");
-    Pkg.build("PredictMD");
-    '
-
-julia $JULIA_FLAGS -e '
-    ENV["JULIA_DEBUG"] = "all";
-    import Pkg;
-    Pkg.add("PredictMDExtra");
-    Pkg.build("PredictMDExtra");
-    '
-
-julia $JULIA_FLAGS -e '
-    ENV["JULIA_DEBUG"] = "all";
-    import Pkg;
-    Pkg.add("PredictMDFull");
-    Pkg.build("PredictMDFull");
-    '
-
-julia $JULIA_FLAGS -e '
-    ENV["JULIA_DEBUG"] = "all";
-    import Pkg;
-    Pkg.build("PredictMD");
-    Pkg.build("PredictMDExtra");
-    Pkg.build("PredictMDFull");
+    TRAVIS_BUILD_DIR = ENV["TRAVIS_BUILD_DIR"];
+    pushfirst!(
+        Base.LOAD_PATH,
+        joinpath(TRAVIS_BUILD_DIR, "ci", "RegistryTestingTools",),
+        );
+    import RegistryTestingTools;
+    RegistryTestingTools.test_registry(TRAVIS_BUILD_DIR);
     '
 
 ##### End of file
