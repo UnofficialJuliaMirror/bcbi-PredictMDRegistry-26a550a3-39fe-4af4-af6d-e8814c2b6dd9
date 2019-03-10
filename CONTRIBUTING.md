@@ -71,15 +71,14 @@ git checkout myinitials/registermynewpackage
 
 Make a new directory for your package:
 ```bash
-mkdir -p E/Example
+mkdir -p packages/E/Example
 ```
 
 ## Step 8:
 
 `cd` into the newly created directory for your package:
 ```bash
-cd E
-cd Example
+cd packages/E/Example
 ```
 
 ## Step 9:
@@ -117,8 +116,7 @@ git cat-file -p v1.2.3
 
 Go back to the root directory and add your package to `Registry.toml`:
 ```bash
-cd ..
-cd ..
+cd ../../..
 vim Registry.toml
 ```
 
@@ -193,8 +191,7 @@ git checkout myinitials/updatemypackage
 
 `cd` into the directory for your package:
 ```bash
-cd E
-cd Example
+cd packages/E/Example
 ```
 
 ## Step 8:
