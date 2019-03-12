@@ -102,14 +102,16 @@ Edit the files appropriately.
 
 ### How to get the `git-tree-sha` value for a tagged version
 
-Go to your package and run the following command:
+Go to your package and run the following commands:
 ```bash
-git cat-file -p MY-GIT-TAG
+git checkout tags/MY-GIT-TAG
+git log --pretty=format:'%T %s' | head -n 1
 ```
 
 For example, to get the `git-tree-sha` value for version `v1.2.3`, you would do:
 ```bash
-git cat-file -p v1.2.3
+git checkout tags/v1.2.3
+git log --pretty=format:'%T %s' | head -n 1
 ```
 
 ## Step 11:
@@ -205,14 +207,16 @@ Update the files appropriately.
 
 ### How to get the `git-tree-sha` value for a tagged version
 
-Go to your package and run the following command:
+Go to your package and run the following commands:
 ```bash
-git cat-file -p MY-GIT-TAG
+git checkout tags/MY-GIT-TAG
+git log --pretty=format:'%T %s' | head -n 1
 ```
 
 For example, to get the `git-tree-sha` value for version `v1.2.3`, you would do:
 ```bash
-git cat-file -p v1.2.3
+git checkout tags/v1.2.3
+git log --pretty=format:'%T %s' | head -n 1
 ```
 
 ## Step 9:
