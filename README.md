@@ -34,3 +34,7 @@ Pkg.Registry.update(Pkg.RegistrySpec(name="PredictMDRegistry",uuid="26a550a3-39f
 # How to register a new package with PredictMDRegistry
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions.
+
+# How to register a new version for an existing package already registered with PredictMDRegistry
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions.

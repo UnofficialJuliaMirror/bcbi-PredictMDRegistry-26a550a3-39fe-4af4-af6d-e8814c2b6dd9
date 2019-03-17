@@ -15,7 +15,7 @@ env:
     global:
         - JULIA_DEBUG="all"
     matrix:
-        - JULIA_VER="1.1"
+        - JOB="[,)" JULIA_VER="1.1"
 
 git:
     depth: 99999999
@@ -32,7 +32,7 @@ notifications:
 
 os:
     - linux
-    - osx
+#    - osx
 
 ############################################################################
 

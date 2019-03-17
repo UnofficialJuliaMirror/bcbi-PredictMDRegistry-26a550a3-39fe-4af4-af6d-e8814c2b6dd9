@@ -21,8 +21,8 @@
         </tr>
         <tr>
             <td align="left">
-                <a href="#appendix-a-see-also">
-                    Appendix A: See Also
+                <a href="#see-also">
+                    See Also
                 </a>
             </td>
         </tr>
@@ -248,7 +248,7 @@ Once your pull request has been merged, delete your local copy of your fork:
 rm -rf PredictMDRegistry
 ```
 
-# Appendix A: See Also
+# See Also
 
 ## Helpful documentation and discussions
 
