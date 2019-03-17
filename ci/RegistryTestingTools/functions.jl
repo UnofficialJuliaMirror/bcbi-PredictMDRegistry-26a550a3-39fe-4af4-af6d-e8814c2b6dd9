@@ -47,6 +47,15 @@ function test_registry(
         )
     unique!(packages_to_clone)
     sort!(packages_to_clone)
+    _this_job_interval_contains_x(x) = _interval_contains_x(
+        this_job_interval,
+        x,
+        )
+    packages_to_clone_in_this_job_interval = packages_to_clone[
+        _this_job_interval_contains_x.(
+            packages_to_clone
+            )
+        ]
     my_depot::String = joinpath(mktempdir(), "depot",)
     my_environment::String = joinpath(mktempdir(), "depot",)
     rm(my_depot; force = true, recursive = true,)
@@ -62,17 +71,14 @@ function test_registry(
         Pkg.Registry.add(additional_registry)
         Pkg.Registry.update(additional_registry)
     end
-    n = length(packages_to_clone)
+    n = length(packages_to_clone_in_this_job_interval)
     for i = 1:n
-        name = packages_to_clone[i]
-        @debug("Processing \"$(name)\" (package $(i) of $(n))")
-        if _interval_contains_x(this_job_interval, name)
-            @debug("Building \"$(name)\" (package $(i) of $(n))")
-            rm(my_environment;force = true,recursive = true,)
-            mkpath(my_environment)
-            Pkg.add(name)
-            Pkg.build(name)
-        end
+        name = packages_to_clone_in_this_job_interval[i]
+        @debug("Adding \"$(name)\" (package $(i) of $(n))")
+        rm(my_environment;force = true,recursive = true,)
+        mkpath(my_environment)
+        Pkg.add(name)
+        Pkg.build(name)
     end
     rm(my_depot; force = true, recursive = true,)
     rm(my_environment;force = true,recursive = true,)
