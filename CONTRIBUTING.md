@@ -15,7 +15,7 @@
         <tr>
             <td align="left">
                 <a href="#2-how-to-tag-a-new-release-for-a-package-already-registered-with-predictmdregistry">
-                    2. How to register a new version for an existing package already registered with PredictMDRegistry
+                    2. How to tag a new release for a package already registered with PredictMDRegistry
                 </a>
             </td>
         </tr>
