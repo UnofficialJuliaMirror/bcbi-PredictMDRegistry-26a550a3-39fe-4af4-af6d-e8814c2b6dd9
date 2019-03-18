@@ -14,8 +14,8 @@
         </tr>
         <tr>
             <td align="left">
-                <a href="#2-how-to-register-a-new-version-for-an-existing-package-already-registered-with-predictmdregistry">
-                    2. How to register a new version for an existing package already registered with PredictMDRegistry
+                <a href="#2-how-to-tag-a-new-release-for-a-package-already-registered-with-predictmdregistry">
+                    2. How to tag a new release for a package already registered with PredictMDRegistry
                 </a>
             </td>
         </tr>
@@ -151,7 +151,7 @@ Once your pull request has been merged, delete your local copy of your fork:
 rm -rf PredictMDRegistry
 ```
 
-# 2. How to register a new version for an existing package already registered with PredictMDRegistry
+# 2. How to tag a new release for a package already registered with PredictMDRegistry
 
 ## Step 1:
 
