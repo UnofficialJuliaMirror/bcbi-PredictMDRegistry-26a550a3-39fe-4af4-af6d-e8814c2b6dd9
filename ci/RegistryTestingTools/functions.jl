@@ -14,6 +14,7 @@ function test_registry(
             "ci.toml",
             ),
         )::Nothing
+    original_directory::String = pwd()
     this_job_interval::AbstractInterval = _construct_interval(
         convert(String, strip(job))
         )
@@ -87,6 +88,72 @@ function test_registry(
         push!(Base.DEPOT_PATH, x,)
     end
     unique!(Base.DEPOT_PATH)
+    registry_configuration = Pkg.TOML.parsefile(
+        joinpath(registry_path,"Registry.toml",)
+        )
+    for pair in registry_configuration["packages"]
+        name = pair[2]["name"]
+        path = pair[2]["path"]
+        if name in packages_to_clone_in_this_job_interval
+            @debug("Checking `git-tree-sha1` values for package \"$(name)\"")
+            previous_directory = pwd()
+            package_configuration = Pkg.TOML.parsefile(
+                joinpath(path,"Package.toml")
+                )
+            versions_configuration = Pkg.TOML.parsefile(
+                joinpath(path,"Versions.toml")
+                )
+            git_tree_sha1_list = String[]
+            for version in keys(versions_configuration)
+                push!(
+                    git_tree_sha1_list,
+                    versions_configuration[version]["git-tree-sha1"],
+                    )
+            end
+            repo_url = package_configuration["repo"]
+            tmp_repo_clone_path = mktempdir()
+            Base.shred!(LibGit2.CachedCredentials()) do creds
+                LibGit2.with(
+                    Pkg.GitTools.clone(
+                        repo_url,
+                        tmp_repo_clone_path;
+                        header = "registry from $(repr(repo_url))",
+                        credentials = creds,
+                        )
+                    ) do repo
+                end
+            end
+            cd(tmp_repo_clone_path)
+            for git_tree_sha1_value in git_tree_sha1_list
+                cat_file_type = lowercase(
+                    strip(
+                        read(
+                            `git cat-file -t $(git_tree_sha1_value)`,
+                            String,
+                            )
+                        )
+                    )
+                if cat_file_type != "tree"
+                    @debug(
+                        "git_tree_sha1 does not correspond to a tree",
+                        name,
+                        path,
+                        repo_url,
+                        git_tree_sha1_value,
+                        cat_file_type,
+                        )
+                    error("git_tree_sha1 does not correspond to a tree")
+                end
+            end
+            cd(previous_directory)
+            rm(
+                repo_clone_path;
+                force = true,
+                recursive = true,
+                )
+        end
+    end
+    cd(original_directory)
     return nothing
 end
 
