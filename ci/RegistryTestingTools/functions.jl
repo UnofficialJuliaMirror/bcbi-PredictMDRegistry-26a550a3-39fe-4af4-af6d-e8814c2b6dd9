@@ -1,5 +1,6 @@
 ##### Beginning of file
 
+import LibGit2
 import Pkg
 
 function test_registry(
