@@ -148,7 +148,7 @@ function test_registry(
             end
             cd(previous_directory)
             rm(
-                repo_clone_path;
+                tmp_repo_clone_path;
                 force = true,
                 recursive = true,
                 )
