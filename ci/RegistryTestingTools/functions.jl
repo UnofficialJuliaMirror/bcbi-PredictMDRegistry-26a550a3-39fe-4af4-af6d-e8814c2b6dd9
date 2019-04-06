@@ -47,13 +47,13 @@ function test_registry(
     packages_to_clone::Vector{String} = strip.(
         setdiff(all_packages, clone_ignore,)
         )
+    unique!(packages_to_clone)
+    sort!(packages_to_clone)
     n = length(packages_to_clone)
     @debug("packages_to_clone ($(n)):")
     for i = 1:n
         @debug("$(i). $(packages_to_clone[i])")
     end
-    unique!(packages_to_clone)
-    sort!(packages_to_clone)
     _this_job_interval_contains_x(x) = _interval_contains_x(
         this_job_interval,
         x,
@@ -63,6 +63,8 @@ function test_registry(
             packages_to_clone
             )
         ]
+    unique!(packages_to_clone_in_this_job_interval)
+    sort!(packages_to_clone_in_this_job_interval)
     n = length(packages_to_clone_in_this_job_interval)
     @debug("packages_to_clone_in_this_job_interval ($(n)):")
     for i = 1:n
