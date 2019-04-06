@@ -50,7 +50,7 @@ function test_registry(
     n = length(packages_to_clone)
     @debug("packages_to_clone ($(n)):")
     for i = 1:n
-        @debug("(i). $(packages_to_clone[i])")
+        @debug("$(i). $(packages_to_clone[i])")
     end
     unique!(packages_to_clone)
     sort!(packages_to_clone)
@@ -66,7 +66,7 @@ function test_registry(
     n = length(packages_to_clone_in_this_job_interval)
     @debug("packages_to_clone_in_this_job_interval ($(n)):")
     for i = 1:n
-        @debug("(i). $(packages_to_clone_in_this_job_interval[i])")
+        @debug("$(i). $(packages_to_clone_in_this_job_interval[i])")
     end
     my_depot::String = joinpath(mktempdir(), "depot",)
     my_environment::String = joinpath(mktempdir(), "depot",)
