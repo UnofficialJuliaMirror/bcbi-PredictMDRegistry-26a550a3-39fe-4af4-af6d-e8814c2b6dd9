@@ -43,7 +43,21 @@ function test_registry(
             end
         end
     end
+    unique!(all_packages)
+    sort!(all_packages)
+    n = length(all_packages)
+    @debug("all_packages ($(n)):")
+    for i = 1:n
+        @debug("$(i). $(all_packages[i])")
+    end
     clone_ignore::Vector{String} = configuration["clone"]["ignore"]
+    unique!(clone_ignore)
+    sort!(clone_ignore)
+    n = length(clone_ignore)
+    @debug("clone_ignore ($(n)):")
+    for i = 1:n
+        @debug("$(i). $(clone_ignore[i])")
+    end
     packages_to_clone::Vector{String} = strip.(
         setdiff(all_packages, clone_ignore,)
         )
