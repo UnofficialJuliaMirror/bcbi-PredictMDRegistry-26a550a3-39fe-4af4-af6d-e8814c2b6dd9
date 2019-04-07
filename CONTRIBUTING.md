@@ -7,8 +7,8 @@
     <tbody>
         <tr>
             <td align="left">
-                <a href="#1-how-to-register-a-new-package-with-predictmdregistry">
-                    1. How to register a new package with PredictMDRegistry
+                <a href="#1-how-to-submit-a-new-package-to-predictmdregistry">
+                    1. How to submit a new package to PredictMDRegistry
                 </a>
             </td>
         </tr>
@@ -29,7 +29,7 @@
     </tbody>
 </table>
 
-# 1. How to register a new package with PredictMDRegistry
+# 1. How to submit a new package to PredictMDRegistry
 
 ## Step 1:
 
