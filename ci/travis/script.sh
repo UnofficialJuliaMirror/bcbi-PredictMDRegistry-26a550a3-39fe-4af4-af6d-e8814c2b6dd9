@@ -27,4 +27,6 @@ julia $JULIA_FLAGS -e '
     RegistryTestingTools.test_registry(TRAVIS_BUILD_DIR);
     '
 
+julia $JULIA_FLAGS $TRAVIS_BUILD_DIR/compress.jl "$JOB"
+
 ##### End of file
