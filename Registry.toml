@@ -10,3 +10,4 @@ Official registry for PredictMD and PredictMD-related packages.
 3e7d7328-36f8-4388-bd01-4613c92c7370 = { name = "PredictMD", path = "packages/P/PredictMD" }
 d14d998a-9e6b-11e8-16d3-6f2879ea456d = { name = "PredictMDExtra", path = "packages/P/PredictMDExtra" }
 5c0c5c38-9dd5-11e8-3ab7-453bd9ce6c97 = { name = "PredictMDFull", path = "packages/P/PredictMDFull" }
+497a8b3b-efae-58df-a0af-a86822472b78 = { name = "DoubleFloats", path = "packages/D/DoubleFloats" }
