@@ -1,3 +1,8 @@
+["0.6"]
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+PredictMD = "3e7d7328-36f8-4388-bd01-4613c92c7370"
+PredictMDExtra = "d14d998a-9e6b-11e8-16d3-6f2879ea456d"
+
 ["0.6.0"]
 Atom = "c52e3926-4ff0-5f6e-af25-54175e0327b1"
 AxisArrays = "39de3d68-74b9-583c-8d2d-e117c070f3a9"
@@ -35,10 +40,7 @@ NamedArrays = "86f7a689-2022-50b4-a561-43c23ac3c673"
 NumericalIntegration = "e7bfaba1-d571-5449-8927-abc22e82249b"
 OnlineStats = "a15396b6-48d5-5d58-9928-6d29437db91e"
 PGFPlotsX = "8314cec4-20b6-5062-9cdb-752b83310925"
-Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 PooledArrays = "2dfb63ee-cc39-5dd5-95bd-886bf059d720"
-PredictMD = "3e7d7328-36f8-4388-bd01-4613c92c7370"
-PredictMDExtra = "d14d998a-9e6b-11e8-16d3-6f2879ea456d"
 ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
 Query = "1a8c2f83-1ff3-5112-b086-8aa67b057ba1"
 RData = "df47a6cb-8c03-5eed-afd8-b6050d6c41da"
@@ -52,8 +54,3 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 TextParse = "e0df1984-e451-5cb5-8b61-797a481e67e3"
 UnicodePlots = "b8865327-cd53-5732-bb35-84acbb429228"
 ValueHistories = "98cad3c8-aec3-5f06-8e41-884608649ab7"
-
-["0.6.1"]
-Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
-PredictMD = "3e7d7328-36f8-4388-bd01-4613c92c7370"
-PredictMDExtra = "d14d998a-9e6b-11e8-16d3-6f2879ea456d"
