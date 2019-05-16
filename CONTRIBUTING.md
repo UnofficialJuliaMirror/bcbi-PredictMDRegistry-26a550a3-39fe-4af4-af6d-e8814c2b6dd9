@@ -7,15 +7,15 @@
     <tbody>
         <tr>
             <td align="left">
-                <a href="#1-how-to-submit-a-new-package-to-predictmdregistry">
-                    1. How to submit a new package to PredictMDRegistry
+                <a href="#1-how-to-submit-a-new-package-to-bcbiregistry">
+                    1. How to submit a new package to BCBIRegistry
                 </a>
             </td>
         </tr>
         <tr>
             <td align="left">
-                <a href="#2-how-to-tag-a-new-release-for-a-package-already-registered-with-predictmdregistry">
-                    2. How to tag a new release for a package already registered with PredictMDRegistry
+                <a href="#2-how-to-tag-a-new-release-for-a-package-already-registered-with-bcbiregistry">
+                    2. How to tag a new release for a package already registered with BCBIRegistry
                 </a>
             </td>
         </tr>
@@ -29,7 +29,7 @@
     </tbody>
 </table>
 
-# 1. How to submit a new package to PredictMDRegistry
+# 1. How to submit a new package to BCBIRegistry
 
 ## Step 1:
 
@@ -38,7 +38,7 @@ For this document, we will call the package `Example.jl`.
 
 ## Step 2:
 
-Make your own fork of this repo: [https://github.com/bcbi/PredictMDRegistry/fork](https://github.com/bcbi/PredictMDRegistry/fork)
+Make your own fork of this repo: [https://github.com/bcbi/BCBIRegistry/fork](https://github.com/bcbi/BCBIRegistry/fork)
 
 ## Step 3:
 
@@ -49,14 +49,14 @@ Make your own fork of this repo: [https://github.com/bcbi/PredictMDRegistry/fork
 Clone your fork:
 
 ```bash
-git clone git@github.com:YourGitHubUsername/PredictMDRegistry.git
+git clone git@github.com:YourGitHubUsername/BCBIRegistry.git
 ```
 
 ## Step 5:
 
 `cd` into your cloned fork:
 ```bash
-cd PredictMDRegistry
+cd BCBIRegistry
 ```
 
 ## Step 6:
@@ -142,16 +142,16 @@ git push origin myinitials/registermynewpackage
 
 ## Step 14:
 
-Open a new pull request: [https://github.com/bcbi/PredictMDRegistry/compare](https://github.com/bcbi/PredictMDRegistry/compare)
+Open a new pull request: [https://github.com/bcbi/BCBIRegistry/compare](https://github.com/bcbi/BCBIRegistry/compare)
 
 ## Step 15:
 
 Once your pull request has been merged, delete your local copy of your fork:
 ```bash
-rm -rf PredictMDRegistry
+rm -rf BCBIRegistry
 ```
 
-# 2. How to tag a new release for a package already registered with PredictMDRegistry
+# 2. How to tag a new release for a package already registered with BCBIRegistry
 
 ## Step 1:
 
@@ -160,7 +160,7 @@ For this document, we will call the package `Example.jl`.
 
 ## Step 2 (if you don't already have your own fork):
 
-If you don't already have your own fork of this repo, make a fork: [https://github.com/bcbi/PredictMDRegistry/fork](https://github.com/bcbi/PredictMDRegistry/fork)
+If you don't already have your own fork of this repo, make a fork: [https://github.com/bcbi/BCBIRegistry/fork](https://github.com/bcbi/BCBIRegistry/fork)
 
 ## Step 3:
 
@@ -171,14 +171,14 @@ If you don't already have your own fork of this repo, make a fork: [https://gith
 Clone your fork:
 
 ```bash
-git clone git@github.com:YourGitHubUsername/PredictMDRegistry.git
+git clone git@github.com:YourGitHubUsername/BCBIRegistry.git
 ```
 
 ## Step 5:
 
 `cd` into your cloned fork:
 ```bash
-cd PredictMDRegistry
+cd BCBIRegistry
 ```
 
 ## Step 6:
@@ -239,13 +239,13 @@ git push origin myinitials/updatemypackage
 
 ## Step 11:
 
-Open a new pull request: [https://github.com/bcbi/PredictMDRegistry/compare](https://github.com/bcbi/PredictMDRegistry/compare)
+Open a new pull request: [https://github.com/bcbi/BCBIRegistry/compare](https://github.com/bcbi/BCBIRegistry/compare)
 
 ## Step 12:
 
 Once your pull request has been merged, delete your local copy of your fork:
 ```bash
-rm -rf PredictMDRegistry
+rm -rf BCBIRegistry
 ```
 
 # See Also
