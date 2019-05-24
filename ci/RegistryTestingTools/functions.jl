@@ -3,6 +3,20 @@
 import LibGit2
 import Pkg
 
+function pairwise_equality(x, y)::Matrix{Bool}
+    length_x::Int = length(x)
+    length_y::Int = length(y)
+    result_matrix::Matrix{Bool} = Matrix{Bool}(undef, length_x, length_y)
+    for i = 1:length(x)
+        for j = 1:length(y)
+            result_matrix[i,j] = x[i] == y[j]
+        end
+    end
+    return result_matrix
+end
+
+any_pairwise_equality(x, y)::Bool = any(pairwise_equality(x, y))
+
 function test_registry(
         registry_path::AbstractString;
         additional_registries::Vector{Pkg.RegistrySpec} = Pkg.RegistrySpec[
