@@ -3,7 +3,10 @@
 import LibGit2
 import Pkg
 
-function pairwise_equality(x, y)::Matrix{Bool}
+function pairwise_equality(
+        x::AbstractVector,
+        y::AbstractVector,
+        )::Matrix{Bool}
     length_x::Int = length(x)
     length_y::Int = length(y)
     result_matrix::Matrix{Bool} = Matrix{Bool}(undef, length_x, length_y)
@@ -16,6 +19,60 @@ function pairwise_equality(x, y)::Matrix{Bool}
 end
 
 any_pairwise_equality(x, y)::Bool = any(pairwise_equality(x, y))
+
+function version_string_equality(x::AbstractString,y::AbstractString,)::Bool
+    x_converted::String = convert(String, x)
+    y_converted::String = convert(String, y)
+    result = version_string_equality(x_converted, y_converted,)
+    return result
+end
+
+function version_string_equality(x::String, y::String,)::Bool
+    x_stripped::String = strip(x)
+    x_stripped_lowercase::String = lowercase(x_stripped)
+    all_x = [
+        x_stripped,
+        x_stripped_lowercase,
+        VersionNumber(x_stripped),
+        VersionNumber(x_stripped_lowercase),
+        ]
+    y_stripped::String = strip(y)
+    y_stripped_lowercase::String = lowercase(y_stripped)
+    all_y = [
+        y_stripped,
+        y_stripped_lowercase,
+        VersionNumber(y_stripped),
+        VersionNumber(y_stripped_lowercase),
+        ]
+    result::Bool = any_pairwise_equality(
+        all_x,
+        all_y,
+        )
+    return result
+end
+
+function is_valid_version_string(x::AbstractString)::Bool
+    x_converted::String = convert(String, x,)
+    result = is_valid_version_string(x_converted)
+    return result
+end
+
+function is_valid_version_string(x::String)::Bool
+    x_stripped::String = strip(x)
+    result_stripped::Bool = try
+        isa(VersionNumber(x_stripped), VersionNumber)
+    catch
+        false
+    end
+    x_stripped_lowercase::String = lowercase(x_stripped)
+    result_stripped_lowercase::Bool = try
+        isa(VersionNumber(x_stripped_lowercase), VersionNumber)
+    catch
+        false
+    end
+    result::Bool = result_stripped && result_stripped_lowercase
+    return result
+end
 
 function test_registry(
         registry_path::AbstractString;
@@ -53,6 +110,19 @@ function test_registry(
                         all_packages,
                         file_contents["name"],
                         )
+                end
+                if lowercase(strip(file)) == "versions.toml"
+                    for version_number in keys(file_contents)
+                        if !is_valid_version_string(version_number)
+                            @error(
+                                "Not a valid version number",
+                                version_number,
+                                root,
+                                file,
+                                )
+                            error("Not a valid version number")
+                        end
+                    end
                 end
             end
         end
