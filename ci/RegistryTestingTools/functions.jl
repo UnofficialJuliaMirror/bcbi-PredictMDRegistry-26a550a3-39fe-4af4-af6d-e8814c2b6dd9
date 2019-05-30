@@ -169,7 +169,14 @@ function compare_external_registry(
         )
     n = length(packages_in_this_job_interval)
     for i = 1:n
+        ### @debug(string("Checking git-tree-sha1 values for \"$(name)\" ","",))
         name = packages_in_this_job_interval[i]
+        @debug(
+            string(
+                "Comparing git-tree-sha1 values for \"$(name)\" ",
+                "(package $(i) of $(n))",
+                )
+            )
         my_path = name_to_path_myregistry[name]
         if name in packages_in_external_registry
             their_path = name_to_path_externalregistry[name]
@@ -202,16 +209,25 @@ function compare_external_registry(
                             their_versions_toml[
                                 their_version]["git-tree-sha1"]
                             )
-                        if my_git_tree_sha1 != their_git_tree_sha1
-                            @error(
-                                "git-tree-sha1 mismatch",
-                                my_git_tree_sha1,
-                                their_git_tree_sha1,
+                        if my_git_tree_sha1 == their_git_tree_sha1
+                            @debug(
+                                "good news: git-tree-sha1 values match",
                                 my_version,
                                 their_version,
+                                my_git_tree_sha1,
+                                their_git_tree_sha1,
+                                )
+                        else
+                            @error(
+                                "git-tree-sha1 mismatch",
+                                my_version,
+                                their_version,
+                                my_git_tree_sha1,
+                                their_git_tree_sha1,
                                 )
                             error("git-tree-sha1 mismatch")
                         end
+
                     end
                 end
             end
@@ -227,65 +243,6 @@ function compare_external_registry(
     cd(original_directory)
     return nothing
 end
-
-# function test_registry(
-
-#     n = length(packages_to_clone_in_this_job_interval)
-#     for i = 1:n
-#         name = packages_to_clone_in_this_job_interval[i]
-#         @debug(
-#             string(
-#                 "Checking git-tree-sha1 values for \"$(name)\" ",
-#                 "(package $(i) of $(n))",
-#                 )
-#             )
-#         path = name_to_path[name]
-#         previous_directory = pwd()
-#         package_configuration = Pkg.TOML.parsefile(
-#             joinpath(path,"Package.toml")
-#             )
-#         versions_configuration = Pkg.TOML.parsefile(
-#             joinpath(path,"Versions.toml")
-#             )
-#         git_tree_sha1_list = String[]
-#         for version in keys(versions_configuration)
-#             push!(
-#                 git_tree_sha1_list,
-#                 versions_configuration[version]["git-tree-sha1"],
-#                 )
-#         end
-#         repo_url = package_configuration["repo"]
-#
-#         cd(tmp_repo_clone_path)
-#         for git_tree_sha1_value in git_tree_sha1_list
-#             cat_file_type = lowercase(
-#                 strip(
-#                     read(
-#                         `git cat-file -t $(git_tree_sha1_value)`,
-#                         String,
-#                         )
-#                     )
-#                 )
-#             if cat_file_type != "tree"
-#                 @debug(
-#                     "git_tree_sha1 does not correspond to a tree",
-#                     name,
-#                     path,
-#                     repo_url,
-#                     git_tree_sha1_value,
-#                     cat_file_type,
-#                     )
-#                 error("git_tree_sha1 does not correspond to a tree")
-#             end
-#         end
-#         cd(previous_directory)
-#         rm(
-#             tmp_repo_clone_path;
-#             force = true,
-#             recursive = true,
-#             )
-#     end
-# end
 
 function test_registry(
         registry_path::AbstractString;
