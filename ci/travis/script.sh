@@ -17,16 +17,8 @@ julia $JULIA_FLAGS -e "VERSION >= v\"0.7.0-DEV.3630\" && using InteractiveUtils;
 rm -rf $HOME/.julia
 rm -rf $TRAVIS_HOME/.julia
 
-julia $JULIA_FLAGS -e '
-    TRAVIS_BUILD_DIR = ENV["TRAVIS_BUILD_DIR"];
-    pushfirst!(
-        Base.LOAD_PATH,
-        joinpath(TRAVIS_BUILD_DIR, "ci", "RegistryTestingTools",),
-        );
-    import RegistryTestingTools;
-    RegistryTestingTools.test_registry(TRAVIS_BUILD_DIR);
-    '
-
+julia $JULIA_FLAGS $TRAVIS_BUILD_DIR/ci/travis/test_registry.jl
+julia $JULIA_FLAGS $TRAVIS_BUILD_DIR/ci/travis/compare_juliaregistries_general.jl
 julia $JULIA_FLAGS $TRAVIS_BUILD_DIR/compress.jl "$JOB"
 
 ##### End of file
