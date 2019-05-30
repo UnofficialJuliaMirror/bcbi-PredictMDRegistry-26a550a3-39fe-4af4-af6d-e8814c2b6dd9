@@ -35,6 +35,10 @@ function version_string_equality(x::String, y::String,)::Bool
         x_stripped_lowercase,
         VersionNumber(x_stripped),
         VersionNumber(x_stripped_lowercase),
+        strip(string(VersionNumber(x_stripped))),
+        strip(string(VersionNumber(x_stripped_lowercase))),
+        VersionNumber(strip(string(VersionNumber(x_stripped)))),
+        VersionNumber(strip(string(VersionNumber(x_stripped_lowercase)))),
         ]
     y_stripped::String = strip(y)
     y_stripped_lowercase::String = lowercase(y_stripped)
@@ -43,6 +47,10 @@ function version_string_equality(x::String, y::String,)::Bool
         y_stripped_lowercase,
         VersionNumber(y_stripped),
         VersionNumber(y_stripped_lowercase),
+        strip(string(VersionNumber(y_stripped))),
+        strip(string(VersionNumber(y_stripped_lowercase))),
+        VersionNumber(strip(string(VersionNumber(y_stripped)))),
+        VersionNumber(strip(string(VersionNumber(y_stripped_lowercase)))),
         ]
     result::Bool = any_pairwise_equality(
         all_x,
