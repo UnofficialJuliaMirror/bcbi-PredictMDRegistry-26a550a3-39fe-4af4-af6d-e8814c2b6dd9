@@ -7,3 +7,7 @@ Official package registry for the Brown Center for Biomedical Informatics.
 """
 
 [packages]
+3e7d7328-36f8-4388-bd01-4613c92c7370 = { name = "PredictMD", path = "packages/P/PredictMD" }
+df4d2c64-811c-11e9-2782-c5e8d6893c98 = { name = "PredictMDAPI", path = "packages/P/PredictMDAPI" }
+d14d998a-9e6b-11e8-16d3-6f2879ea456d = { name = "PredictMDExtra", path = "packages/P/PredictMDExtra" }
+5c0c5c38-9dd5-11e8-3ab7-453bd9ce6c97 = { name = "PredictMDFull", path = "packages/P/PredictMDFull" }
