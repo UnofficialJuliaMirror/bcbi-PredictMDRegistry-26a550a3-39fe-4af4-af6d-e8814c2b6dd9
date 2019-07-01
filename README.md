@@ -7,8 +7,7 @@ href="https://travis-ci.org/bcbi/BCBIRegistry/branches">
 src="https://travis-ci.org/bcbi/BCBIRegistry.svg?branch=master"/>
 </a>
 
-This is a Julia package registry for [PredictMD](https://predictmd.net)
-and PredictMD-related packages.
+This is the official Julia package registry for the [Brown Center for Biomedical Informatics](https://github.com/bcbi).
 
 # Usage
 
