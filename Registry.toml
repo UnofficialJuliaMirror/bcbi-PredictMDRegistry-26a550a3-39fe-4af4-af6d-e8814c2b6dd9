@@ -7,3 +7,4 @@ Official package registry for the Brown Center for Biomedical Informatics.
 """
 
 [packages]
+d14d998a-9e6b-11e8-16d3-6f2879ea456d = { name = "PredictMDExtra", path = "P/PredictMDExtra" }
