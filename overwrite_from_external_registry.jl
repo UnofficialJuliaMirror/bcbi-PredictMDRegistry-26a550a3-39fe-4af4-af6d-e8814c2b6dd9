@@ -36,8 +36,7 @@ if length(ARGS) < 3
             "example usage #1: julia overwrite_from_external_registry.jl ",
             "\"General\" ",
             "\"23338594-aafe-5451-b93e-139f81909106\" ",
-            "\"https://github.com/JuliaRegistries/General.git\" ",
-            "\"[,)\"",
+            "\"https://github.com/JuliaRegistries/General.git\"",
             )
         )
     @error(
@@ -46,7 +45,7 @@ if length(ARGS) < 3
             "\"General\" ",
             "\"23338594-aafe-5451-b93e-139f81909106\" ",
             "\"https://github.com/JuliaRegistries/General.git\" ",
-            "\"[,M)\"",
+            "\"[,)\"",
             )
         )
     @error(
@@ -55,7 +54,7 @@ if length(ARGS) < 3
             "\"General\" ",
             "\"23338594-aafe-5451-b93e-139f81909106\" ",
             "\"https://github.com/JuliaRegistries/General.git\" ",
-            "\"[M,)\"",
+            "\"[,M)\"",
             )
         )
     @error(
@@ -64,7 +63,7 @@ if length(ARGS) < 3
             "\"General\" ",
             "\"23338594-aafe-5451-b93e-139f81909106\" ",
             "\"https://github.com/JuliaRegistries/General.git\" ",
-            "\"[G,R)\"",
+            "\"[Pre,)\"",
             )
         )
     @error(
@@ -73,12 +72,21 @@ if length(ARGS) < 3
             "\"General\" ",
             "\"23338594-aafe-5451-b93e-139f81909106\" ",
             "\"https://github.com/JuliaRegistries/General.git\" ",
-            "\"Foo\"",
+            "\"[G,Req)\"",
             )
         )
     @error(
         string(
             "example usage #6: julia overwrite_from_external_registry.jl ",
+            "\"General\" ",
+            "\"23338594-aafe-5451-b93e-139f81909106\" ",
+            "\"https://github.com/JuliaRegistries/General.git\" ",
+            "\"Foo\"",
+            )
+        )
+    @error(
+        string(
+            "example usage #7: julia overwrite_from_external_registry.jl ",
             "\"General\" ",
             "\"23338594-aafe-5451-b93e-139f81909106\" ",
             "\"https://github.com/JuliaRegistries/General.git\" ",
