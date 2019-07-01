@@ -1,4 +1,12 @@
-[0]
+["0.7"]
+InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+JuliaDB = "a93385a2-3734-596a-9a66-3cfbb77141e6"
+OnlineStats = "a15396b6-48d5-5d58-9928-6d29437db91e"
+PooledArrays = "2dfb63ee-cc39-5dd5-95bd-886bf059d720"
+Requires = "ae029012-a4dd-5104-9daa-d747884805df"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+["0.7-0.9"]
 Adapt = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
 Atom = "c52e3926-4ff0-5f6e-af25-54175e0327b1"
 BSON = "fbb218c0-5317-5bc6-957e-2ee96dd4b1f0"
@@ -73,14 +81,6 @@ Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 ValueHistories = "98cad3c8-aec3-5f06-8e41-884608649ab7"
 Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
 
-["0-0.7"]
-InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
-JuliaDB = "a93385a2-3734-596a-9a66-3cfbb77141e6"
-OnlineStats = "a15396b6-48d5-5d58-9928-6d29437db91e"
-PooledArrays = "2dfb63ee-cc39-5dd5-95bd-886bf059d720"
-Requires = "ae029012-a4dd-5104-9daa-d747884805df"
-Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-
-["0.8-0"]
+["0.8-0.9"]
 Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
