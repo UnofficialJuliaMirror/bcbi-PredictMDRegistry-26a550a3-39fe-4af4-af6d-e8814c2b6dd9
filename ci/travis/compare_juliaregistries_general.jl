@@ -6,8 +6,6 @@ pushfirst!(Base.LOAD_PATH,joinpath(TRAVIS_BUILD_DIR, "ci", "RegistryTestingTools
 
 import RegistryTestingTools
 
-# RegistryTestingTools.test_registry(TRAVIS_BUILD_DIR)
-
 RegistryTestingTools.compare_external_registry(
     TRAVIS_BUILD_DIR,
     Pkg.RegistrySpec(
