@@ -1,4 +1,5 @@
 import Pkg
+import UUIDs
 
 function maketempdir()::String
     path::String = mktempdir()
@@ -21,7 +22,7 @@ cd(project_root)
 include(joinpath(project_root, "ci", "RegistryTestingTools", "types.jl",))
 
 if length(ARGS) < 3
-    error(
+    @error(
         string(
             "syntax: julia overwrite_from_external_registry.jl ",
             "\"EXTERNAL_REGISTRY_NAME\" ",
@@ -30,6 +31,61 @@ if length(ARGS) < 3
             "[list of packages or interval of packages (optional)]",
             )
         )
+    @error(
+        string(
+            "example usage #1: julia overwrite_from_external_registry.jl ",
+            "\"General\" ",
+            "\"23338594-aafe-5451-b93e-139f81909106\" ",
+            "\"https://github.com/JuliaRegistries/General.git\" ",
+            "\"[,)\"",
+            )
+        )
+    @error(
+        string(
+            "example usage #2: julia overwrite_from_external_registry.jl ",
+            "\"General\" ",
+            "\"23338594-aafe-5451-b93e-139f81909106\" ",
+            "\"https://github.com/JuliaRegistries/General.git\" ",
+            "\"[,M)\"",
+            )
+        )
+    @error(
+        string(
+            "example usage #3: julia overwrite_from_external_registry.jl ",
+            "\"General\" ",
+            "\"23338594-aafe-5451-b93e-139f81909106\" ",
+            "\"https://github.com/JuliaRegistries/General.git\" ",
+            "\"[M,)\"",
+            )
+        )
+    @error(
+        string(
+            "example usage #4: julia overwrite_from_external_registry.jl ",
+            "\"General\" ",
+            "\"23338594-aafe-5451-b93e-139f81909106\" ",
+            "\"https://github.com/JuliaRegistries/General.git\" ",
+            "\"[G,R)\"",
+            )
+        )
+    @error(
+        string(
+            "example usage #5: julia overwrite_from_external_registry.jl ",
+            "\"General\" ",
+            "\"23338594-aafe-5451-b93e-139f81909106\" ",
+            "\"https://github.com/JuliaRegistries/General.git\" ",
+            "\"Foo\"",
+            )
+        )
+    @error(
+        string(
+            "example usage #6: julia overwrite_from_external_registry.jl ",
+            "\"General\" ",
+            "\"23338594-aafe-5451-b93e-139f81909106\" ",
+            "\"https://github.com/JuliaRegistries/General.git\" ",
+            "\"Foo\" \"Bar\" \"Baz\"",
+            )
+        )
+    error("Not enough command-line arguments")
 elseif length(ARGS) == 3
     push!(ARGS, "[,)",)
 else
@@ -37,7 +93,7 @@ end
 
 external_registry = Pkg.RegistrySpec(
     name = strip(ARGS[1]),
-    uuid = strip(ARGS[2]),
+    uuid = UUIDs.UUID(strip(ARGS[2])),
     url = strip(ARGS[3]),
     )
 
@@ -103,7 +159,7 @@ empty!(Base.DEPOT_PATH)
 pushfirst!(Base.DEPOT_PATH, my_depot,)
 Pkg.activate(my_environment)
 Pkg.Registry.add(external_registry)
-external_registry_afteradding::Pkg.Types.RegistrySpec = first(
+external_registry_afteradding = first(
     Pkg.Types.collect_registries()
     )
 external_registry_configuration = Pkg.TOML.parsefile(
@@ -119,7 +175,7 @@ for pair in external_registry_configuration["packages"]
     external_registry_name_to_uuid[name] = uuid
 end
 external_registry_all_packages = Set(
-    collect(keys(name_to_path_externalregistry))
+    collect(keys(external_registry_name_to_path))
     )
 
 
@@ -130,7 +186,7 @@ for i = 1:n
     if name in this_registry_all_packages
         if name in external_registry_all_packages
             our_uuid = this_registry_name_to_uuid[name]
-            their_uud = external_registry_configuration[name]
+            their_uuid = external_registry_name_to_uuid[name]
             if strip(our_uuid) == strip(their_uuid)
                 our_path = this_registry_name_to_path[name]
                 their_path = external_registry_name_to_path[name]
@@ -144,6 +200,7 @@ for i = 1:n
                     force = true,
                     recursive = true,
                     )
+                mkpath(our_full_path)
                 our_compat_toml = joinpath(our_full_path, "Compat.toml")
                 our_deps_toml = joinpath(our_full_path, "Deps.toml")
                 our_package_toml = joinpath(our_full_path, "Package.toml")
@@ -190,7 +247,7 @@ for i = 1:n
                         "but the external registry says that ",
                         "the UUID of package ",
                         "\"$(name)\" is ",
-                        "\"$(their_uud)\".",
+                        "\"$(their_uuid)\".",
                         )
                     )
             end
@@ -214,15 +271,6 @@ for i = 1:n
                 )
             )
     end
-    # path = name_to_path[name]
-    # for j = 1:3
-    #     for filename in ["Versions.toml", "Compat.toml", "Deps.toml",]
-    #         full_file_path = joinpath(path, filename,)
-    #         uncompressed = Pkg.Compress.load(full_file_path,)
-    #         Pkg.Compress.save(full_file_path,uncompressed,)
-    #     end
-    # end
-    # @info("Compressed package \"$(name)\"")
 end
 
 
