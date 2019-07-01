@@ -20,5 +20,6 @@ rm -rf $TRAVIS_HOME/.julia
 julia $JULIA_FLAGS $TRAVIS_BUILD_DIR/ci/travis/test_registry.jl
 julia $JULIA_FLAGS $TRAVIS_BUILD_DIR/ci/travis/compare_juliaregistries_general.jl
 julia $JULIA_FLAGS $TRAVIS_BUILD_DIR/compress.jl "$JOB"
+julia $JULIA_FLAGS $TRAVIS_BUILD_DIR/overwrite_from_external_registry.jl "General" "23338594-aafe-5451-b93e-139f81909106" "https://github.com/JuliaRegistries/General.git" "$JOB"
 
 ##### End of file
