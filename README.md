@@ -1,10 +1,13 @@
 # BCBIRegistry
 
+<p>
+<a href="https://app.bors.tech/repositories/12309"><img src="https://bors.tech/images/badge_small.svg" alt="Bors enabled"></a>
 <a
 href="https://travis-ci.org/bcbi/BCBIRegistry/branches">
 <img
 src="https://travis-ci.org/bcbi/BCBIRegistry.svg?branch=master"/>
 </a>
+</p>
 
 This is the official Julia package registry for the [Brown Center for Biomedical Informatics](https://github.com/bcbi).
 
