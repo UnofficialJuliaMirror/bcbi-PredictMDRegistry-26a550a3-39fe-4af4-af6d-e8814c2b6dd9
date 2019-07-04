@@ -1,6 +1,5 @@
 # BCBIRegistry
 
-
 <a
 href="https://travis-ci.org/bcbi/BCBIRegistry/branches">
 <img
@@ -9,9 +8,9 @@ src="https://travis-ci.org/bcbi/BCBIRegistry.svg?branch=master"/>
 
 This is the official Julia package registry for the [Brown Center for Biomedical Informatics](https://github.com/bcbi).
 
-# Usage
+## 1. Usage
 
-## Adding BCBIRegistry
+### Adding BCBIRegistry
 
 To add BCBIRegistry, open Julia and run the following commands:
 
@@ -21,7 +20,7 @@ Pkg.Registry.add(Pkg.RegistrySpec(name="BCBIRegistry",url="https://github.com/bc
 Pkg.Registry.update(Pkg.RegistrySpec(name="BCBIRegistry",uuid="26a550a3-39fe-4af4-af6d-e8814c2b6dd9")); 
 ```
 
-## Adding the General registry
+### Adding the General registry
 
 Packages registered in BCBIRegistry often have dependencies that are registered in the [General](https://github.com/JuliaRegistries/General) registry (but are not registered in BCBIRegistry). Therefore, you will probably want to make sure that you have also added the General registry. To add the General registry, open Julia and run the following commands:
 
@@ -31,7 +30,7 @@ Pkg.add("General");
 Pkg.update("General"); 
 ```
 
-## Updating registries
+### Updating registries
 
 To update all of the registries that you have added, open Julia and run the following commands:
 ```julia
@@ -53,17 +52,17 @@ import Pkg;
 Pkg.update("General"); 
 ```
 
-# How to register a new package with BCBIRegistry
+# 2. How to register a new package with BCBIRegistry
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions.
 
-# How to tag a new release for a package already registered with BCBIRegistry
+# 3. How to tag a new release for a package already registered with BCBIRegistry
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions.
 
-# How to overwrite the files in BCBIRegistry with the files in the Julia General registry
+# 4. How to overwrite the files in BCBIRegistry with the files in the General registry
 
-From time to time, you may want to "reset" BCBIRegistry to match the [Julia General registry](https://github.com/JuliaRegistries/General). In order to do this, you simply need to delete the relevant files in BCBIRegistry and replace them with the corresponding files in the Julia General registry. The quickest way to accomplish this is by using the `overwrite_from_external_registry.jl` script.
+From time to time, you may want to "reset" BCBIRegistry to match the [General registry](https://github.com/JuliaRegistries/General). In order to do this, you simply need to delete the relevant files in BCBIRegistry and replace them with the corresponding files in the General registry. The quickest way to accomplish this is by using the `overwrite_from_external_registry.jl` script.
 
 The syntax is:
 ```bash
