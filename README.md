@@ -10,7 +10,7 @@ This is the official Julia package registry for the [Brown Center for Biomedical
 
 ## 1. Usage
 
-### Adding BCBIRegistry
+### 1.1. Adding BCBIRegistry
 
 To add BCBIRegistry, open Julia and run the following commands:
 
@@ -20,7 +20,7 @@ Pkg.Registry.add(Pkg.RegistrySpec(name="BCBIRegistry",url="https://github.com/bc
 Pkg.Registry.update(Pkg.RegistrySpec(name="BCBIRegistry",uuid="26a550a3-39fe-4af4-af6d-e8814c2b6dd9")); 
 ```
 
-### Adding the General registry
+### 1.2. Adding the General registry
 
 Packages registered in BCBIRegistry often have dependencies that are registered in the [General](https://github.com/JuliaRegistries/General) registry (but are not registered in BCBIRegistry). Therefore, you will probably want to make sure that you have also added the General registry. To add the General registry, open Julia and run the following commands:
 
@@ -30,7 +30,7 @@ Pkg.add("General");
 Pkg.update("General"); 
 ```
 
-### Updating registries
+### 1.3. Updating registries
 
 To update all of the registries that you have added, open Julia and run the following commands:
 ```julia
