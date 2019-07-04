@@ -52,15 +52,15 @@ import Pkg;
 Pkg.update("General"); 
 ```
 
-# 2. How to register a new package with BCBIRegistry
+## 2. How to register a new package with BCBIRegistry
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions.
 
-# 3. How to tag a new release for a package already registered with BCBIRegistry
+## 3. How to tag a new release for a package already registered with BCBIRegistry
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions.
 
-# 4. How to overwrite the files in BCBIRegistry with the files in the General registry
+## 4. How to overwrite the files in BCBIRegistry with the files in the General registry
 
 From time to time, you may want to "reset" BCBIRegistry to match the [General registry](https://github.com/JuliaRegistries/General). In order to do this, you simply need to delete the relevant files in BCBIRegistry and replace them with the corresponding files in the General registry. The quickest way to accomplish this is by using the `overwrite_from_external_registry.jl` script.
 
