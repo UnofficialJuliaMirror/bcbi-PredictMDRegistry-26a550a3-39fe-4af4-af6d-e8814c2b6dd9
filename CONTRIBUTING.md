@@ -100,6 +100,7 @@ Edit the files appropriately.
 - `Package.toml`
 - `Versions.toml`
 
+
 ### How to get the `git-tree-sha` value for a tagged version
 
 Go to your package and run the following commands:
@@ -124,6 +125,16 @@ vim Registry.toml
 
 ## Step 12:
 
+If your package is a public repository, skip this step.
+
+If your package is a private repository, add your package to the `ignore`
+entry of `ci/ci.toml`:
+```bash
+vim ci/ci.toml
+```
+
+## Step 13:
+
 Commit your changes:
 ```bash
 git add -A
@@ -132,7 +143,7 @@ git commit
 
 Enter an appropriate commit message, save, and exit.
 
-## Step 13:
+## Step 14:
 
 Push your changes up to your fork:
 
@@ -140,11 +151,11 @@ Push your changes up to your fork:
 git push origin myinitials/registermynewpackage
 ```
 
-## Step 14:
+## Step 15:
 
 Open a new pull request: [https://github.com/bcbi/BCBIRegistry/compare](https://github.com/bcbi/BCBIRegistry/compare)
 
-## Step 15:
+## Step 16:
 
 Once your pull request has been merged, delete your local copy of your fork:
 ```bash

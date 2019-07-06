@@ -144,7 +144,7 @@ if _is_interval(ARGS[4])
         ]
 else
     packages_to_overwrite_in_this_job_interval = String[
-        strip(s) for s in ARGS
+        strip(s) for s in ARGS[4:end]
         ]
 end
 unique!(packages_to_overwrite_in_this_job_interval)
@@ -288,5 +288,3 @@ for x in original_depot_path
 end
 unique!(Base.DEPOT_PATH)
 cd(original_directory)
-
-# ++++++++++++++++++++++++++++++++++++++++++++++++
