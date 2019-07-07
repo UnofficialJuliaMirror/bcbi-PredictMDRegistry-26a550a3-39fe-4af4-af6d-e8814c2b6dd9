@@ -3,4 +3,6 @@ repo = "https://github.com/bcbi/BCBIRegistry.git"
 uuid = "26a550a3-39fe-4af4-af6d-e8814c2b6dd9"
 description = "Official package registry for the Brown Center for Biomedical Informatics."
 
-[packages]
+[packages.df4d2c64-811c-11e9-2782-c5e8d6893c98]
+name = "PredictMDAPI"
+path = "packages/P/PredictMDAPI"
