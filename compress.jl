@@ -10,9 +10,8 @@ if length(ARGS) == 0
     push!(ARGS, "[,)",)
 end
 
-registry_configuration = Pkg.TOML.parsefile(
-    joinpath(project_root,"Registry.toml",)
-    )
+this_registry_toml_path = joinpath(project_root, "Registry.toml")
+registry_configuration = Pkg.TOML.parsefile(this_registry_toml_path)
 name_to_path = Dict{String, String}()
 all_packages = String[]
 for pair in registry_configuration["packages"]
