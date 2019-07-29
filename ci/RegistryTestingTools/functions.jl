@@ -269,6 +269,9 @@ function test_registry(
                     joinpath(root, file,)
                     )
                 if lowercase(strip(file)) == "registry.toml"
+                    if !haskey(file_contents, "packages")
+                        file_contents["packages"] = Dict{String, Any}()
+                    end
                     append!(
                         all_packages,
                         [x["name"] for x in
