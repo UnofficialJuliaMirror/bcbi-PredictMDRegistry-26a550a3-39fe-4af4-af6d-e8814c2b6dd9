@@ -10,9 +10,8 @@ if length(ARGS) == 0
     push!(ARGS, "[,)",)
 end
 
-registry_configuration = Pkg.TOML.parsefile(
-    joinpath(project_root,"Registry.toml",)
-    )
+this_registry_toml_path = joinpath(project_root, "Registry.toml")
+registry_configuration = Pkg.TOML.parsefile(this_registry_toml_path)
 name_to_path = Dict{String, String}()
 all_packages = String[]
 for pair in registry_configuration["packages"]
@@ -68,6 +67,17 @@ for i = 1:n
         end
     end
     @info("Compressed package \"$(name)\"")
+end
+
+temp_registry_toml = read(this_registry_toml_path, String)
+temp_registry_toml_parsed = Pkg.TOML.parse(temp_registry_toml)
+if !haskey(temp_registry_toml_parsed, "packages")
+    temp_output = string(temp_registry_toml,
+                         "\n\n\n\n",
+                         "[packages]",
+                         "\n\n\n\n")
+    rm(this_registry_toml_path; force = true, recursive = true)
+    write(this_registry_toml_path, temp_output)
 end
 
 cd(original_directory)

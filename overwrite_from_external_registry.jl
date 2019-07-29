@@ -105,9 +105,8 @@ external_registry = Pkg.RegistrySpec(
     url = strip(ARGS[3]),
     )
 
-this_registry_configuration = Pkg.TOML.parsefile(
-    joinpath(project_root,"Registry.toml",)
-    )
+this_registry_toml_path = joinpath(project_root,"Registry.toml",)
+this_registry_configuration = Pkg.TOML.parsefile(this_registry_toml_path)
 this_registry_name_to_path = Dict{String, String}()
 this_registry_name_to_uuid = Dict{String, String}()
 this_registry_all_packages = String[]
@@ -281,10 +280,21 @@ for i = 1:n
     end
 end
 
-
 empty!(Base.DEPOT_PATH)
 for x in original_depot_path
     push!(Base.DEPOT_PATH, x,)
 end
 unique!(Base.DEPOT_PATH)
+
+temp_registry_toml = read(this_registry_toml_path, String)
+temp_registry_toml_parsed = Pkg.TOML.parse(temp_registry_toml)
+if !haskey(temp_registry_toml_parsed, "packages")
+    temp_output = string(temp_registry_toml,
+                         "\n\n\n\n",
+                         "[packages]",
+                         "\n\n\n\n")
+    rm(this_registry_toml_path; force = true, recursive = true)
+    write(this_registry_toml_path, temp_output)
+end
+
 cd(original_directory)

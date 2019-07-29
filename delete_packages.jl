@@ -92,6 +92,17 @@ rm(this_registry_toml_path; force = true, recursive = true)
 open(this_registry_toml_path, "w") do f
     Pkg.TOML.print(f, this_registry_configuration)
 end
+
+temp_registry_toml = read(this_registry_toml_path, String)
+temp_registry_toml_parsed = Pkg.TOML.parse(temp_registry_toml)
+if !haskey(temp_registry_toml_parsed, "packages")
+    temp_output = string(temp_registry_toml,
+                         "\n\n\n\n",
+                         "[packages]",
+                         "\n\n\n\n")
+    rm(this_registry_toml_path; force = true, recursive = true)
+    write(this_registry_toml_path, temp_output)
+end
 push!(info_messages, "Wrote Registry.toml file to $(this_registry_toml_path)")
 
 for message in info_messages
