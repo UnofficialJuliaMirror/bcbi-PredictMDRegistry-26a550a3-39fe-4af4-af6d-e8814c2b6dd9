@@ -103,7 +103,6 @@ if !haskey(temp_registry_toml_parsed, "packages")
     rm(this_registry_toml_path; force = true, recursive = true)
     write(this_registry_toml_path, temp_output)
 end
-
 push!(info_messages, "Wrote Registry.toml file to $(this_registry_toml_path)")
 
 for message in info_messages
