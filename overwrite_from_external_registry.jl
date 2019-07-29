@@ -105,9 +105,8 @@ external_registry = Pkg.RegistrySpec(
     url = strip(ARGS[3]),
     )
 
-this_registry_configuration = Pkg.TOML.parsefile(
-    joinpath(project_root,"Registry.toml",)
-    )
+this_registry_toml_path = joinpath(project_root,"Registry.toml",)
+this_registry_configuration = Pkg.TOML.parsefile(this_registry_toml_path)
 this_registry_name_to_path = Dict{String, String}()
 this_registry_name_to_uuid = Dict{String, String}()
 this_registry_all_packages = String[]
