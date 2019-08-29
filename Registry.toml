@@ -3,10 +3,4 @@ repo = "https://github.com/bcbi/BCBIRegistry.git"
 uuid = "26a550a3-39fe-4af4-af6d-e8814c2b6dd9"
 description = "Official package registry for the Brown Center for Biomedical Informatics."
 
-
-
-
 [packages]
-
-
-
