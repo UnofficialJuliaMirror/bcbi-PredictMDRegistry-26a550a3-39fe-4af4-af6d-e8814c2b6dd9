@@ -8,14 +8,14 @@
         <tr>
             <td align="left">
                 <a href="#1-how-to-submit-a-new-package-to-bcbiregistry">
-                    1. How to submit a new package to BCBIRegistry
+                    1. How to submit a new package to BCBIPublicRegistry
                 </a>
             </td>
         </tr>
         <tr>
             <td align="left">
                 <a href="#2-how-to-tag-a-new-release-for-a-package-already-registered-with-bcbiregistry">
-                    2. How to tag a new release for a package already registered with BCBIRegistry
+                    2. How to tag a new release for a package already registered with BCBIPublicRegistry
                 </a>
             </td>
         </tr>
@@ -29,7 +29,7 @@
     </tbody>
 </table>
 
-# 1. How to submit a new package to BCBIRegistry
+# 1. How to submit a new package to BCBIPublicRegistry
 
 ## Step 1:
 
@@ -38,7 +38,7 @@ For this document, we will call the package `Example.jl`.
 
 ## Step 2:
 
-Make your own fork of this repo: [https://github.com/bcbi/BCBIRegistry/fork](https://github.com/bcbi/BCBIRegistry/fork)
+Make your own fork of this repo: [https://github.com/bcbi/BCBIPublicRegistry/fork](https://github.com/bcbi/BCBIPublicRegistry/fork)
 
 ## Step 3:
 
@@ -49,14 +49,14 @@ Make your own fork of this repo: [https://github.com/bcbi/BCBIRegistry/fork](htt
 Clone your fork:
 
 ```bash
-git clone git@github.com:YourGitHubUsername/BCBIRegistry.git
+git clone git@github.com:YourGitHubUsername/BCBIPublicRegistry.git
 ```
 
 ## Step 5:
 
 `cd` into your cloned fork:
 ```bash
-cd BCBIRegistry
+cd BCBIPublicRegistry
 ```
 
 ## Step 6:
@@ -153,16 +153,16 @@ git push origin myinitials/registermynewpackage
 
 ## Step 15:
 
-Open a new pull request: [https://github.com/bcbi/BCBIRegistry/compare](https://github.com/bcbi/BCBIRegistry/compare)
+Open a new pull request: [https://github.com/bcbi/BCBIPublicRegistry/compare](https://github.com/bcbi/BCBIPublicRegistry/compare)
 
 ## Step 16:
 
 Once your pull request has been merged, delete your local copy of your fork:
 ```bash
-rm -rf BCBIRegistry
+rm -rf BCBIPublicRegistry
 ```
 
-# 2. How to tag a new release for a package already registered with BCBIRegistry
+# 2. How to tag a new release for a package already registered with BCBIPublicRegistry
 
 ## Step 1:
 
@@ -171,7 +171,7 @@ For this document, we will call the package `Example.jl`.
 
 ## Step 2 (if you don't already have your own fork):
 
-If you don't already have your own fork of this repo, make a fork: [https://github.com/bcbi/BCBIRegistry/fork](https://github.com/bcbi/BCBIRegistry/fork)
+If you don't already have your own fork of this repo, make a fork: [https://github.com/bcbi/BCBIPublicRegistry/fork](https://github.com/bcbi/BCBIPublicRegistry/fork)
 
 ## Step 3:
 
@@ -182,14 +182,14 @@ If you don't already have your own fork of this repo, make a fork: [https://gith
 Clone your fork:
 
 ```bash
-git clone git@github.com:YourGitHubUsername/BCBIRegistry.git
+git clone git@github.com:YourGitHubUsername/BCBIPublicRegistry.git
 ```
 
 ## Step 5:
 
 `cd` into your cloned fork:
 ```bash
-cd BCBIRegistry
+cd BCBIPublicRegistry
 ```
 
 ## Step 6:
@@ -250,13 +250,13 @@ git push origin myinitials/updatemypackage
 
 ## Step 11:
 
-Open a new pull request: [https://github.com/bcbi/BCBIRegistry/compare](https://github.com/bcbi/BCBIRegistry/compare)
+Open a new pull request: [https://github.com/bcbi/BCBIPublicRegistry/compare](https://github.com/bcbi/BCBIPublicRegistry/compare)
 
 ## Step 12:
 
 Once your pull request has been merged, delete your local copy of your fork:
 ```bash
-rm -rf BCBIRegistry
+rm -rf BCBIPublicRegistry
 ```
 
 # See Also
