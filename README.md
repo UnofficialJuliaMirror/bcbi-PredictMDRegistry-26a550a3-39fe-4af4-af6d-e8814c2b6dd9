@@ -14,7 +14,7 @@ src="https://travis-ci.com/bcbi/BCBIPublicRegistry.svg?branch=master"/>
 </a>
 </p>
 
-This is the official Julia package registry for the [Brown Center for Biomedical Informatics](https://github.com/bcbi).
+This is the official Julia package registry for the [Brown Center for Biomedical Informatics (BCBI)](https://github.com/bcbi).
 
 ## 1. Usage
 
